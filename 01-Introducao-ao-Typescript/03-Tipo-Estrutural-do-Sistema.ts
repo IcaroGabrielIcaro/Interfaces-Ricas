@@ -14,10 +14,10 @@ const point = { x: 12, y: 26 };
 logPoint2(point);
 
 const point3 = { x: 12, y: 26, z: 89 };
-logPoint(point3); // logs "12, 26"
+logPoint2(point3); // logs "12, 26"
 
 const rect = { x: 33, y: 3, width: 30, height: 80 };
-logPoint(rect); // logs "33, 3"
+logPoint2(rect); // logs "33, 3"
 
 const color = { hex: "#187ABF" };
 // logPoint(color); o argumento do tipo {hex: string; } 
@@ -34,4 +34,31 @@ class VirtualPoint {
 }
 
 const newVPoint = new VirtualPoint(13, 56);
-logPoint(newVPoint); // logs "13, 56"
+logPoint2(newVPoint); // logs "13, 56"
+
+// Tipos vazios
+
+class Empty {}
+
+function fn(arg: Empty) {
+    // faz algo?
+}
+
+// sem erros, mas isso não é um "Empty"?
+fn({ k: 10 })
+
+// Tipos identicos
+
+class Car {
+    drive() {
+        // hit the gas
+    }
+}
+
+class Golfer {
+    drive() {
+        // hit the ball far
+    }
+}
+
+let w: Car = new Golfer();
