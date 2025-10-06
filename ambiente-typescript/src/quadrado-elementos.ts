@@ -1,4 +1,12 @@
-export const quadrado = (arr: number[]): number[] => {
+export const quadradoFor = (arr: number[]): number[] => {
+    const resultado: number[] = [];
+    for (let i = 0; i < arr.length; i++) {
+        resultado.push(arr[i] * arr[i])
+    }
+    return resultado;
+}
+
+export const quadradoForEach = (arr: number[]): number[] => {
     const resultado: number[] = [];
     arr.forEach(num => resultado.push(num * num));
     return resultado;
@@ -6,4 +14,4 @@ export const quadrado = (arr: number[]): number[] => {
 
 const numeros : number[] = [1,2,3,4,5]
 
-console.log(quadrado(numeros));
+console.log(quadradoForEach(numeros));
