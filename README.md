@@ -1,3 +1,3 @@
-# Interfaces-Ricas
+# Atividade Typescript
 
-Este repositório contém o projeto desenvolvido para a disciplina de Interfaces Ricas, utilizando o framework Angular.
+Esta branch guarda a atividade de TypeScript da matéria de Interfaces Ricas.
