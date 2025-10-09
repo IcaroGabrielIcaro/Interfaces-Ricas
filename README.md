@@ -30,3 +30,4 @@ Startar projeto:
 
 ```./src/```
 
+As aplicações estarão dentro dessa pasta junto do index, style e main principal para todo o projeto
