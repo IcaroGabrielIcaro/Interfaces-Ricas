@@ -31,3 +31,7 @@ Startar projeto:
 ```./src/```
 
 As aplicações estarão dentro dessa pasta junto do index, style e main principal para todo o projeto
+
+## Instalando o [PrimeNG](https://primeng.org/installation)
+
+Vai ajudar a pegar templates e componentes já prontos para não ter que ficar escrevendo tudo na mão
