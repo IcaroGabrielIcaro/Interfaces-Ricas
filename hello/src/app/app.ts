@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { PanelModule } from 'primeng/panel';
 
 /**
  * Um componente é tudo o que estamos vendo na tela inicial
@@ -13,17 +14,17 @@ import { ButtonModule } from 'primeng/button';
  * O arquivo obrigatorio é o app.ts */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonModule],
+  imports: [RouterOutlet, ButtonModule, PanelModule],
   // templateUrl: './app.html', // template pela url
   styleUrl: './app.css',
   // template in line
   template: `
     <!-- Titulo é uma função -->
-    <main>
-      <h1>Hello, {{ variavel }}</h1>
-      <p>Congratulations! Your {{ title() }} is running</p>
-      <p-button label="Check" />
-      <input type="button" value="Check2">
+    <main class="main">
+      <p-panel header="Olá, {{ title() }}">
+        <p>Valor do contador: {{ counter }}</p>
+        <p-button label="Incrementar 1" (onClick)="incrementar()"></p-button>
+      </p-panel>
       
       <!-- <div class="pill-group">
         @for (item of items; track item.title) {
@@ -54,4 +55,10 @@ export class App {
       { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
       { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
   ];
+
+  protected counter: number = 0;
+
+  incrementar() {
+    this.counter++;
+  }
 }
