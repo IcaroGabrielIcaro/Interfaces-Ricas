@@ -14,17 +14,29 @@ import { PanelModule } from 'primeng/panel';
  * O arquivo obrigatorio é o app.ts */
 @Component({
   selector: 'app-root',
+
   imports: [RouterOutlet, ButtonModule, PanelModule],
-  // templateUrl: './app.html', // template pela url
-  styleUrl: './app.css',
+
+  // template pela url
+  // templateUrl: './app.html',
+
+  // estilo pela url
+  // styleUrl: './app.css',
+
+  // estilo in line
+  // styles: `estilo`,
+
   // template in line
   template: `
     <!-- Titulo é uma função -->
     <main class="main">
       <p-panel header="Olá, {{ title() }}">
         <p>Valor do contador: {{ counter }}</p>
-        <p-button label="Incrementar 1" (onClick)="incrementar()"></p-button>
+        <p-button styleClass="text-8x1" label="Incrementar 1" (onClick)="incrementar()"></p-button>
       </p-panel>
+      <h1 class="text-6xl text-amber-400 font-bold underline">
+        Hello world!
+      </h1>
       
       <!-- <div class="pill-group">
         @for (item of items; track item.title) {
@@ -43,7 +55,7 @@ export class App {
   // variavel que serve para guardar um valor que ao mesmo tempo é uma funcao
   // Toda vez que vai alterar o valor ou algo vai poder mexer como em um uma variavel
   // Mas se for ler, tem que ler como uma funcao
-  protected readonly title = signal('Título');
+  protected readonly title = signal<string>('Título');
 
   protected readonly variavel: string = 'ícaro'; // nao é signal
 

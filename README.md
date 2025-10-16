@@ -36,4 +36,8 @@ As aplicações estarão dentro dessa pasta junto do index, style e main princip
 
 Vai ajudar a pegar templates e componentes já prontos para não ter que ficar escrevendo tudo na mão
 
-a
+## Instalando o [TailwindCss](https://tailwindcss.com/docs/installation/framework-guides/angular)
+*Também é possível instalar pelo [PrimeNg](https://primeng.org/tailwind)*
+
+Aplicação todinha vai usar o tailwind e não vai user folha de estilo
+
