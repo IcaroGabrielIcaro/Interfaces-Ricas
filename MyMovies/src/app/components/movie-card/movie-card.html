@@ -13,13 +13,11 @@
             <span class="text-yellow-400 font-bold font-mono">
                 {{ movie.nota }}/10
             </span>
-
-            <!-- <button 
-              (click)="toggleFavorito(movie)" 
-              class="text-2xl transition-colors"
-              [ngClass]="movie.favorito ? 'text-red-500' : 'text-gray-400 hover:text-red-400'">
-              <i class="pi" [ngClass]="movie.favorito ? 'pi-heart-fill' : 'pi-heart'"></i>
-            </button> -->
+        </div>
+        
+        <div class="flex justify-end space-x-2">
+          <a [routerLink]="['/filmes/editar', movie.id]" class="bg-blue-500 hover:bg-blue-400 text-white text-sm font-bold px-3 py-1 rounded-lg transition-all font-mono">Atualizar</a>
+          <a (click)="deletarFilme(movie.id)" [routerLink]="['/filmes/excluir', movie.id]" class="bg-red-500 hover:bg-red-400 text-white text-sm font-bold px-3 py-1 rounded-lg transition-all font-mono">Excluir</a>
         </div>
     </div>
 </div>
