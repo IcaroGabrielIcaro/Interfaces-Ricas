@@ -1,0 +1,26 @@
+@for (movie of movies; track $index) {
+<div class="bg-slate-800 text-white rounded-2xl shadow-lg overflow-hidden border border-gray-700 m-4">
+    <div class="p-4">
+        <h2 class="text-xl font-semibold mb-1 font-mono">{{ movie.nome }}</h2>
+
+        <p class="text-gray-300 text-sm mb-2 italic font-mono">“{{ movie.review }}”</p>
+
+        <p class="text-gray-400 text-xs font-light font-mono mb-3">
+            Assistido em: {{ movie.dataAssistida }}
+        </p>
+
+        <div class="flex items-center justify-between">
+            <span class="text-yellow-400 font-bold font-mono">
+                {{ movie.nota }}/10
+            </span>
+
+            <!-- <button 
+              (click)="toggleFavorito(movie)" 
+              class="text-2xl transition-colors"
+              [ngClass]="movie.favorito ? 'text-red-500' : 'text-gray-400 hover:text-red-400'">
+              <i class="pi" [ngClass]="movie.favorito ? 'pi-heart-fill' : 'pi-heart'"></i>
+            </button> -->
+        </div>
+    </div>
+</div>
+}
