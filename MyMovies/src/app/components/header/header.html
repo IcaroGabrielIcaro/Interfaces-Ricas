@@ -1,5 +1,5 @@
-<header class="flex items-center justify-between bg-slate-800 text-white px-6 py-3 shadow-md">
-    <div class="flex items-center space-x-3">
+<header class="flex items-center justify-between bg-slate-900 text-white px-6 py-3">
+    <!-- <div class="flex items-center space-x-3">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-10 h-10 object-cover fill-white"
             preserveAspectRatio="xMidYMid meet">
 
@@ -24,11 +24,21 @@
             </g>
         </svg>
         <h1 class="text-2xl font-semibold tracking-wide font-mono">MyMovies</h1>
+    </div> -->
+
+    <div class="flex-1 flex justify-center">
+        <div class="flex items-center w-full max-w-xl bg-slate-800 rounded-full px-4 py-2">
+            <input type="text" placeholder="Search Movies, TV Series..."
+                class="flex-1 bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none font" />
+            <button
+                class="flex items-center space-x-1 bg-blue-500 hover:bg-blue-400 text-white text-sm font-medium px-3 py-1 rounded-full transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                </svg>
+                <span>Search</span>
+            </button>
+        </div>
     </div>
-    <nav class="menu flex space-x-8 text-sm font-medium">
-        <a routerLink="/filmes"
-            class="relative py-2 hover:text-slate-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-slate-400 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform font-mono">Meus Filmes</a>
-        <a routerLink="/filmes/novo"
-            class="relative py-2 hover:text-slate-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-slate-400 after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform font-mono">Adicionar Filme</a>
-    </nav>
 </header>
