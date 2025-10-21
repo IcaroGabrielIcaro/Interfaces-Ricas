@@ -16,7 +16,8 @@ export class MovieForm {
     review: '',
     nota: 0,
     dataAssistida: new Date(),
-    favorito: false
+    favorito: false,
+    foto: ''
   };
 
   editando = false;
