@@ -1,0 +1,20 @@
+<div class="w-full mt-16">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-3xl font-bold text-white">Seus Filmes</h2>
+
+    <div class="flex gap-3">
+      <button class="bg-blue-500 text-white p-2 rounded-full shadow-md hover:bg-blue-400 transition-all" (click)="prev()">◀</button>
+      <button class="bg-blue-500 text-white p-2 rounded-full shadow-md hover:bg-blue-400 transition-all" (click)="next()">▶</button>
+    </div>
+  </div>
+
+  <div class="flex justify-between gap-3 overflow-hidden">
+    @for (movie of visibleMovies; track $index) {
+        <div class="flex flex-col items-center transition-transform hover:scale-105 cursor-pointer flex-shrink-0">
+          <div class="w-55 h-[21rem] rounded-xl overflow-hidden shadow-lg bg-slate-800">
+            <img [src]="movie.poster" [alt]="movie.nome" class="w-full h-full object-cover object-center" />
+          </div>
+        </div>
+    }
+  </div>
+</div>
