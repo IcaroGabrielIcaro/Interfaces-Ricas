@@ -17,7 +17,10 @@ export class MovieForm {
     nota: 0,
     dataAssistida: new Date(),
     favorito: false,
-    foto: ''
+    foto: '',
+    temas: '',
+    ano: 0,
+    poster: '',
   };
 
   editando = false;
