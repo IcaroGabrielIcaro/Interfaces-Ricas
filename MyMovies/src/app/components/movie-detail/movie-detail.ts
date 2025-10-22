@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie, MovieEntity } from '../../service/movie';
 import { MovieForm } from '../movie-form/movie-form';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-movie-detail',
   standalone: true,
-  imports: [CommonModule, MovieForm],
+  imports: [CommonModule, MovieForm, ButtonModule],
   templateUrl: './movie-detail.html',
 })
 export class MovieDetail {

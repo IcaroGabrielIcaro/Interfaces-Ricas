@@ -31,15 +31,11 @@
       </div>
 
       <div class="flex gap-4">
-        <button (click)="abrirAtualizacao()"
-          class="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg font-semibold text-white shadow-md transition-all duration-300">
-          Atualizar
-        </button>
+        <p-button (click)="abrirAtualizacao()" label="Atualizar" severity="info"
+         styleClass="!bg-blue-600 1hover:bg-blue-500 !px-6 !py-2 !rounded-lg !font-semibold !text-white !shadow-md !transition-all !duration-300 !border-blue-600"/>
 
-        <button (click)="deletarFilme()"
-          class="bg-red-600 hover:bg-red-500 px-6 py-2 rounded-lg font-semibold text-white shadow-md transition-all duration-300">
-          Deletar
-        </button>
+        <p-button (click)="deletarFilme()" label="Deletar" severity="danger"
+         styleClass=" !px-6 !py-2 !rounded-lg !font-semibold !text-white !shadow-md !transition-all !duration-300"/>
       </div>
     </div>
   </div>
