@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Movie, MovieEntity } from '../../service/movie';
 import { HomeMovieList } from '../home-movie-list/home-movie-list';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, HomeMovieList],
+  standalone: true,
+  imports: [CommonModule, HomeMovieList, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -18,13 +20,15 @@ export class Home {
   currentMovie: MovieEntity | null = null;
 
   ngOnInit() {
-    this.movies = this.movieService.listarTodos();
-    this.slicedMovies = this.movieService.listarTodos().slice(0,9);
+    this.movies = this.movieService.listarTodos().sort((a, b) => b.id - a.id);
 
-    const defaultMovie = this.slicedMovies.find(m => m.id === 1);
+    this.slicedMovies = this.movies.slice(0, 9);
+
+    const defaultMovie = this.movies.find(m => m.id === 1) || this.slicedMovies[0];
     if (defaultMovie) {
       this.mainBannerUrl = defaultMovie.foto;
       this.currentMovie = defaultMovie;
+      this.selectedMovieIndex = this.slicedMovies.findIndex(m => m.id === defaultMovie.id);
     }
   }
 

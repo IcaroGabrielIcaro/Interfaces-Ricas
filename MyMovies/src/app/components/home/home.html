@@ -9,12 +9,12 @@
         {{ movieTitle || 'Título do Filme'  }}
       </h1>
       <p class="text-gray-200 text-xl font-medium drop-shadow-md">
-        {{ currentMovie?.temas || 'Temas do Filme' }} • {{ currentMovie?.ano || '' }}
+        {{ currentMovie?.temas || 'Temas do Filme' }} • {{ currentMovie?.ano || '----' }}
       </p>
     </div>
   </div>
 
-  <button class="absolute top-0 left-0 z-10 m-10 bg-blue-500 text-white font-semibold px-11 py-3 rounded-lg hover:bg-blue-400 transition-all duration-300 shadow-md hover:shadow-blue-500/30">Detalhes</button>
+  <button [routerLink]="['/filmes/', currentMovie?.id || '']" class="absolute top-0 left-0 z-10 m-10 bg-blue-500 text-white font-semibold px-11 py-3 rounded-lg hover:bg-blue-400 transition-all duration-300 shadow-md hover:shadow-blue-500/30">Detalhes</button>
 
   <div class="absolute top-1/2 right-8 -translate-y-1/2 z-20 grid grid-cols-3 grid-rows-3 gap-3" style="height: 90%; aspect-ratio: 4 / 3;">
     @for (movie of slicedMovies; track $index) {
