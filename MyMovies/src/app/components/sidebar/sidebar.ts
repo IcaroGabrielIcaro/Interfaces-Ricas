@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,5 +8,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sidebar.css'
 })
 export class Sidebar {
+  @Output() abrirFormulario = new EventEmitter<void>();
 
+  abrirForm() {
+    this.abrirFormulario.emit();
+  }
 }
