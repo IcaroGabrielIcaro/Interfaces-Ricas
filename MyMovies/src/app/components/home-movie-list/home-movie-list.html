@@ -3,8 +3,8 @@
     <h2 class="text-3xl font-bold text-white">Seus Filmes</h2>
 
     <div class="flex gap-3">
-      <button class="bg-blue-500 text-white p-2 rounded-full shadow-md hover:bg-blue-400 transition-all" (click)="prev()">◀</button>
-      <button class="bg-blue-500 text-white p-2 rounded-full shadow-md hover:bg-blue-400 transition-all" (click)="next()">▶</button>
+      <p-button icon="pi pi-angle-left" [rounded]="true" severity="info" (click)="prev()" styleClass="!bg-blue-500 !hover:bg-blue-400 !text-white"/>
+      <p-button icon="pi pi-angle-right" [rounded]="true" severity="info" (click)="next()" styleClass="!bg-blue-500 !hover:bg-blue-400 !text-white"/>
     </div>
   </div>
 
