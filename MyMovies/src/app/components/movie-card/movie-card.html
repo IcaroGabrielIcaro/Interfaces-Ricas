@@ -1,24 +1,26 @@
-@for (movie of movies; track $index) {
-<div class="bg-slate-800 text-white rounded-2xl shadow-lg overflow-hidden border border-gray-700 m-4">
-    <div class="p-4">
-        <h2 class="text-xl font-semibold mb-1 font-mono">{{ movie.nome }}</h2>
+<div class="min-h-screen w-full bg-slate-900 text-white">
+  <h1 class="text-4xl font-extrabold mb-10 text-white">Seus Filmes</h1>
 
-        <p class="text-gray-300 text-sm mb-2 italic font-mono">“{{ movie.review }}”</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    @for (movie of movies; track $index) {
+      <div [routerLink]="['/filmes/', movie.id]" class="relative bg-slate-800/60 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group">
+        <img [src]="movie.poster" [alt]="movie.nome" class="w-full h-80 object-cover"/>
 
-        <p class="text-gray-400 text-xs font-light font-mono mb-3">
-            Assistido em: {{ movie.dataAssistida }}
-        </p>
-
-        <div class="flex items-center justify-between">
-            <span class="text-yellow-400 font-bold font-mono">
-                {{ movie.nota }}/10
-            </span>
+        <div class="absolute top-3 left-3 bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full shadow-md">
+            ★ {{ movie.nota }}
         </div>
-        
-        <div class="flex justify-end space-x-2">
-          <a [routerLink]="['/filmes/editar', movie.id]" class="bg-blue-500 hover:bg-blue-400 text-white text-sm font-bold px-3 py-1 rounded-lg transition-all font-mono">Atualizar</a>
-          <a (click)="deletarFilme(movie.id)" [routerLink]="['/filmes/excluir', movie.id]" class="bg-red-500 hover:bg-red-400 text-white text-sm font-bold px-3 py-1 rounded-lg transition-all font-mono">Excluir</a>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+
+        <div class="absolute bottom-0 left-0 w-full p-4 bg-slate-900/70">
+          <h2 class="text-lg font-semibold truncate">
+            {{ movie.nome }}
+          </h2>
+          <p class="text-sm text-gray-300 truncate">
+            {{ movie.temas }}
+          </p>
         </div>
-    </div>
+      </div>
+    }
+  </div>
 </div>
-}
