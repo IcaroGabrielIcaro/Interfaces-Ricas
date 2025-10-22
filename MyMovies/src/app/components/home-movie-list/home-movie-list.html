@@ -10,7 +10,7 @@
 
   <div class="flex justify-between gap-3 overflow-hidden">
     @for (movie of visibleMovies; track $index) {
-        <div class="flex flex-col items-center transition-transform hover:scale-105 cursor-pointer flex-shrink-0">
+        <div [routerLink]="['/filmes/', movie.id]" class="flex flex-col items-center transition-transform hover:scale-105 cursor-pointer flex-shrink-0">
           <div class="w-55 h-[21rem] rounded-xl overflow-hidden shadow-lg bg-slate-800">
             <img [src]="movie.poster" [alt]="movie.nome" class="w-full h-full object-cover object-center" />
           </div>

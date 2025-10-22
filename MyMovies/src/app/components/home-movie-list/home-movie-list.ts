@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieEntity } from '../../service/movie';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home-movie-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home-movie-list.html',
 })
 export class HomeMovieList {
