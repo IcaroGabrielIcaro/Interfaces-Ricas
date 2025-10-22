@@ -20,7 +20,7 @@ export class Home {
   currentMovie: MovieEntity | null = null;
 
   ngOnInit() {
-    this.movies = this.movieService.listarTodos().sort((a, b) => b.id - a.id);
+    this.movies = this.movieService.listarTodos().sort((a, b) => a.id - b.id);
 
     this.slicedMovies = this.movies.slice(0, 9);
 
