@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Movie, MovieEntity } from '../../service/movie';
 import { HomeMovieList } from '../home-movie-list/home-movie-list';
 import { RouterLink } from "@angular/router";
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HomeMovieList, RouterLink],
+  imports: [CommonModule, HomeMovieList, RouterLink, ButtonModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
