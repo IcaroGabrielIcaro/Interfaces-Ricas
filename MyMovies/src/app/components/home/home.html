@@ -1,0 +1,33 @@
+<div class="relative w-full h-[60vh] bg-slate-900 rounded-2xl overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out" [style.background-image]="'url(' + mainBannerUrl + ')'"></div>
+
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/70 to-slate-800"></div>
+
+  <div class="absolute bottom-0 left-0 z-10 p-10">
+    <div class="bg-gradient-to-t from-black/50 to-transparent p-6 rounded-tr-2xl max-w-[100%]">
+      <h1 class="text-white text-6xl font-extrabold tracking-wide mb-2 drop-shadow-2xl">
+        {{ movieTitle || 'Título do Filme'  }}
+      </h1>
+      <p class="text-gray-200 text-xl font-medium drop-shadow-md">
+        {{ currentMovie?.temas || 'Temas do Filme' }} • {{ currentMovie?.ano || '----' }}
+      </p>
+    </div>
+  </div>
+
+  <p-button label="Detalhes" severity="info" [routerLink]="['/filmes/', currentMovie?.id || '']" class="absolute top-0 left-0 z-10 m-10" styleClass="!bg-blue-500 !text-white !font-semibold !px-11 !py-3 !rounded-lg !hover:bg-blue-400 !transition-all !duration-300 !shadow-md !hover:shadow-blue-500/30 !border-blue-500"/>
+
+  <div class="absolute top-1/2 right-8 -translate-y-1/2 z-20 grid grid-cols-3 grid-rows-3 gap-3" style="height: 90%; aspect-ratio: 4 / 3;">
+    @for (movie of slicedMovies; track $index) {
+      <div class="relative w-full h-full aspect-[16/9] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ease-in-out shadow-lg"
+          [ngClass]="{'scale-105 border-2 border-blue-500': selectedMovieIndex === $index, 'hover:scale-105 hover:border-2 hover:border-blue-500': selectedMovieIndex !== $index}"
+          (click)="trocarBanner(movie.foto, $index)">
+        <img [src]="movie.foto" [alt]="movie.nome" class="w-full h-full object-cover transition-all duration-300"
+            [ngClass]="{'brightness-100': selectedMovieIndex === $index, 'hover:brightness-100': selectedMovieIndex !== $index,'brightness-50 saturate-75': selectedMovieIndex !== $index}"/>
+
+        <div class="absolute inset-0 transition-all duration-300" [ngClass]="{'bg-slate-800/0': selectedMovieIndex === $index, 'bg-slate-800/50 hover:bg-slate-800/20': selectedMovieIndex !== $index}"></div>
+      </div>
+    }
+  </div>
+</div>
+
+<app-home-movie-list [movies]="movies"></app-home-movie-list>

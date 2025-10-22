@@ -1,0 +1,56 @@
+<div class="relative w-full max-h-screen bg-slate-900 text-white">
+  <div class="absolute inset-0 bg-cover bg-center blur-md brightness-50" [style.background-image]="'url(' + movie?.foto + ')'"></div>
+
+  <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/40 to-slate-900"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-10 py-24 flex flex-col md:flex-row items-start gap-10">
+    <div class="flex-shrink-0 w-64 md:w-80 shadow-lg rounded-xl overflow-hidden">
+      <img [src]="movie?.poster" [alt]="movie?.nome" class="w-full h-auto object-cover"/>
+    </div>
+
+    <div class="flex-1">
+      <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">
+        {{ movie?.nome }}
+      </h1>
+
+      <p class="text-gray-300 text-lg mb-6 italic">
+        {{ movie?.temas }} • {{ movie?.ano }}
+      </p>
+
+      <p class="text-gray-100 leading-relaxed mb-8">
+        {{ movie?.review }}
+      </p>
+
+      <div class="flex items-center gap-4 mb-8">
+        <span class="text-yellow-400 text-2xl font-semibold">
+          ★ {{ movie?.nota }}
+        </span>
+        <span class="px-4 py-2 bg-blue-500 rounded-lg text-white font-medium shadow hover:bg-blue-400 transition">
+          Favorito: {{ movie?.favorito ? 'Sim' : 'Não' }}
+        </span>
+      </div>
+
+      <div class="flex gap-4">
+        <p-button (click)="abrirAtualizacao()" label="Atualizar" severity="info"
+         styleClass="!bg-blue-600 1hover:bg-blue-500 !px-6 !py-2 !rounded-lg !font-semibold !text-white !shadow-md !transition-all !duration-300 !border-blue-600"/>
+
+        <p-button (click)="deletarFilme()" label="Deletar" severity="danger"
+         styleClass=" !px-6 !py-2 !rounded-lg !font-semibold !text-white !shadow-md !transition-all !duration-300"/>
+      </div>
+    </div>
+  </div>
+
+  @if (showUpdateForm) {
+    <div class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center">
+      <div class="relative w-full max-w-3xl mx-auto bg-slate-900/70 backdrop-blur-xl rounded-2xl p-6 shadow-2xl overflow-visible">
+        <button (click)="fecharAtualizacao()"
+          class="absolute -top-4 -right-4 bg-slate-800/80 hover:bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg border border-slate-700 transition-all duration-300"
+          title="Fechar">
+          ✕
+        </button>
+
+        <app-movie-form [filmeEditado]="movie"></app-movie-form>
+      </div>
+    </div>
+  }
+</div>
