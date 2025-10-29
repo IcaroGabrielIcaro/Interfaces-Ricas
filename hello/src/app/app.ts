@@ -1,7 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
+import { Menu } from './componentes/menu';
+import { InputField } from './componentes/input-field';
 
 /**
  * Um componente é tudo o que estamos vendo na tela inicial
@@ -15,7 +18,7 @@ import { PanelModule } from 'primeng/panel';
 @Component({
   selector: 'app-root',
 
-  imports: [RouterOutlet, ButtonModule, PanelModule],
+  imports: [RouterOutlet, ButtonModule, PanelModule, Menu, InputField],
 
   // template pela url
   // templateUrl: './app.html',
@@ -30,13 +33,13 @@ import { PanelModule } from 'primeng/panel';
   template: `
     <!-- Titulo é uma função -->
     <main class="main">
+      <app-menu></app-menu>
+
       <p-panel header="Olá, {{ title() }}">
-        <p>Valor do contador: {{ counter }}</p>
-        <p-button styleClass="text-8x1" label="Incrementar 1" (onClick)="incrementar()"></p-button>
+        <app-input-field label="nome" />
+        <app-input-field label="sobrenome" />
+        <app-input-field label="endereço" />
       </p-panel>
-      <h1 class="text-6xl text-amber-400 font-bold underline">
-        Hello world!
-      </h1>
       
       <!-- <div class="pill-group">
         @for (item of items; track item.title) {
@@ -59,14 +62,14 @@ export class App {
 
   protected readonly variavel: string = 'ícaro'; // nao é signal
 
-  protected readonly items = [
-      { title: 'Explore the Docs', link: 'https://angular.dev' },
-      { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-      { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-      { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-      { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-      { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-  ];
+  // protected readonly items = [
+  //     { title: 'Explore the Docs', link: 'https://angular.dev' },
+  //     { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
+  //     { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
+  //     { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
+  //     { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
+  //     { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+  // ];
 
   protected counter: number = 0;
 
