@@ -35,11 +35,20 @@ import { InputField } from './componentes/input-field';
     <main class="main">
       <app-menu></app-menu>
 
-      <p-panel header="Olá, {{ title() }}">
-        <app-input-field label="nome" />
-        <app-input-field label="sobrenome" />
-        <app-input-field label="endereço" />
+      <p-panel header="Olá, {{ title() }} - {{ nome }}">
+        <app-input-field label="Nome" [(value)]="nome"/>
+
+        <app-input-field label="Sobrenome" [(value)]="sobrenome"/>
+
+        <app-input-field label="CEP" [(value)]="cep"/>
+        <app-input-field label="Logradouro" [(value)]="logradouro"/>
+        <app-input-field label="Complemento" [(value)]="complemento"/>
+        <app-input-field label="Bairro" [(value)]="bairro"/>
+        <app-input-field label="Cidade" [(value)]="cidade"/>
+        <app-input-field label="Estado" [(value)]="estado"/>
       </p-panel>
+
+      <p-button label="Incrementar 1" (onClick)="incrementar()"/>
       
       <!-- <div class="pill-group">
         @for (item of items; track item.title) {
@@ -70,6 +79,17 @@ export class App {
   //     { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
   //     { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
   // ];
+
+  protected nome: string = '';
+
+  protected sobrenome: string = '';
+  
+  protected cep: string = '';
+  protected logradouro: string = '';
+  protected complemento: string = '';
+  protected bairro: string = '';
+  protected cidade: string = '';
+  protected estado: string = '';
 
   protected counter: number = 0;
 
